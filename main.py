@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
 
-GPIO.setup(Buzzer. GPIO.OUT)
+GPIO.setup(Buzzer, GPIO.OUT)
 
 try:
   while True:
