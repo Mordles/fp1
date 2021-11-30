@@ -4,9 +4,14 @@ import time
 TRIG = 21
 ECHO = 20
 
+Buzzer = 16
+
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
+
+GPIO.setup(Buzzer. GPIO.OUT)
 
 try:
   while True:
@@ -29,10 +34,20 @@ try:
     print('Distance: %.2f' % distance)
     time.sleep(0.3)
 
+    while distance > 10:
+      GPIO.output(Buzzer, GPIO.LOW)
+
+    while distance < 10:
+      GPIO.output(Buzzer, GPIO.HIGH)
+      time.sleep(0.5)
+      GPIO.output(Buzzer, GPIO.LOW)
+      time.sleep(0.5)
+
+
 except KeyboardInterrupt:
   print('Bye')
   GPIO.cleanup()
 
-  
+
 
 
